@@ -1,2 +1,5 @@
-# Placeholder
-# Code Here
+class ShowsController < ApplicationController
+
+# code here
+
+end

@@ -1,2 +1,5 @@
-# Placeholder
-# Code Here
+class NetworksController
+
+# code here
+
+end
