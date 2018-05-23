@@ -15,6 +15,7 @@ class ShowsController < ApplicationController
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
     network = Network.find_or_create_by(name: params[:network_name])
     @show.network_id = network.id
+    @show.user_id = current_user.id
     # user code
     @show.save
     redirect "/shows/#{@show.id}"
