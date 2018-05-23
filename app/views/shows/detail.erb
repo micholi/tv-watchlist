@@ -10,4 +10,14 @@
 <p><%= @show.network.name %></p>
 
 <h3>Air Date:</h3>
-<p><%= @show.air_date %></p>
+<p><%= @show.air_date %></p><br>
+
+
+<a href="/shows/<%= @show.id %>/edit">Edit <%= @show.name %> Page</a>
+
+<br></br>
+
+<form action="/shows/<%= @show.id %>/delete" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" id="submit" value="Delete Show">
+</form>
