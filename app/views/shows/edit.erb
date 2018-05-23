@@ -7,11 +7,11 @@
   <p><%= @show.name %></p>
   <h4>New Name: <input type="text" name="name"></h4>
 
-  <h3>Genre</h3>
+  <h3>Genre:</h3>
   <p><%= @show.genre %></p>
   <h4>New Genre: <input type="text" name="genre"></h4>
 
-  <h3>Network</h3>
+  <h3>Network:</h3>
   <p><%= @show.network.name %></p>
   <h4>New Network (Select One):</h4>
   <% Network.all.each do |network|%>
@@ -20,11 +20,11 @@
   <input type="checkbox">
   <label>Add New Network: <input type="text" name="network"></label>
 
-  <h3>Description</h3>
+  <h3>Description:</h3>
   <p><%= @show.description %></p>
   <h4>New Description: <input type="text" name="air_date"></h4>
 
-  <h3>Air Date Info</h3>
+  <h3>Air Date Info:</h3>
   <p><%= @show.air_date %></p>
   <h4>New Air Date Info: <input type="text" name="air_date"></h4>
 

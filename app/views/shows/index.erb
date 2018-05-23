@@ -5,13 +5,15 @@
     <th>Show</th>
     <th>Genre</th>
     <th>Network</th>
+  </tr>
 
-    <tr>
+
 
     <% @shows.each do |show| %>
+    <tr>
     <td><a href="/shows/<%= show.id %>"><%= show.name %></td>
-    <td><%= show.network.name %></td>
     <td><%= show.genre %></td>
+    <td><%= show.network.name %></td>
 
   </tr>
     <br></br>
@@ -24,7 +26,6 @@
 
 <% @shows.each do |show| %>
 <a href="/shows/<%= show.id %>"><%= show.name %></a><br>
-
 <%= show.network.name %><br>
 <%= show.genre %><br>
 <%= show.description %><br>
