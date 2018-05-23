@@ -4,7 +4,7 @@ class CreateShows < ActiveRecord::Migration
       t.string :name
       t.string :genre
       t.string :description
-      t.string :new_episodes
+      t.string :air_date
       t.integer :user_id
       t.integer :network_id
     end

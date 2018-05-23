@@ -11,6 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180522211604) do
+
+  create_table "networks", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string  "name"
+    t.string  "genre"
+    t.string  "description"
+    t.string  "air_date"
+    t.integer "user_id"
+    t.integer "network_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
+  end
 
 end
