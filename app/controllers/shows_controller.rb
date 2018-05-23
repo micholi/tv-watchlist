@@ -20,4 +20,27 @@ class ShowsController < ApplicationController
     redirect "/shows/#{@show.id}"
   end
 
+  get '/shows/:id' do
+    # login check
+    @show = Show.find_by_id(params[:id])
+    @user = current_user
+    erb :'/shows/detail'
+    # redirect here
+  end
+
+  get '/shows/:id/edit' do
+    # login check
+    @show = Show.find_by_id(params[:id])
+    erb :'/shows/edit'
+    # redirect here
+  end
+
+  patch '/shows/:id/edit' do
+
+  end
+
+  delete '/show/:id/delete' do
+
+  end
+
 end
