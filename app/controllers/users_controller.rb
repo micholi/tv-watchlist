@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       redirect '/shows'
     else
       redirect '/signup'
+    end
   end
 
   get '/logout' do
