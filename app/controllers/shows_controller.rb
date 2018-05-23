@@ -1,5 +1,13 @@
 class ShowsController < ApplicationController
 
-# code here
+  get '/shows' do
+    # code here
+    erb :'/shows/index'
+  end
+
+  get '/shows/new' do
+    # code here
+    erb :'/shows/new'
+  end
 
 end
