@@ -12,7 +12,7 @@
   <h4>New Genre: <input type="text" name="genre"></h4>
 
   <h3>Network:</h3>
-  <p><%= @show.network.name %></p>
+
   <h4>New Network (Select One):</h4>
   <% Network.all.each do |network|%>
     <input type="checkbox" name="network_name" value="<%=network.name%>" id="network_name"><%=network.name%></input><br>
