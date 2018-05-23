@@ -35,12 +35,20 @@ class ShowsController < ApplicationController
     # redirect here
   end
 
-  patch '/shows/:id/edit' do
-
+  patch '/shows/:id' do
+    # login / user check
+    @show = Show.find_by_id(params[:id])
+    # validity check
+    @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
+    @show.network_id = network.id
+    @show.save
   end
 
   delete '/show/:id/delete' do
-
+    # login / user check
+    @show = Show.find_by_id(params[:id])
+    @show.delete
+    # redirect here
   end
 
 end
