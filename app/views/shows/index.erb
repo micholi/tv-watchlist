@@ -7,16 +7,13 @@
     <th>Network</th>
   </tr>
 
-
-
     <% @shows.each do |show| %>
     <tr>
     <td><a href="/shows/<%= show.id %>"><%= show.name %></td>
     <td><%= show.genre %></td>
     <td><%= show.network.name %></td>
-    <td><%= show.user_id %></td>
 
-  </tr>
+    </tr>
     <br></br>
     <% end %>
 
@@ -27,7 +24,7 @@
 
 <% @shows.each do |show| %>
 <a href="/shows/<%= show.id %>"><%= show.name %></a><br>
-<%= show.network_id %><br>
+<%= show.network.name %><br>
 <%= show.genre %><br>
 <%= show.description %><br>
 <%= show.air_date %><br>
