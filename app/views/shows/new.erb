@@ -9,7 +9,6 @@
   <% Network.all.each do |network|%>
     <input type="checkbox" name="network_name" value="<%=network.name%>" id="network_name"><%=network.name%></input><br>
   <%end%>
-
   <input type="checkbox">
   <label>Add New Network: <input type="text" name="network"></label>
 
@@ -17,6 +16,6 @@
 
   <h4>Air Date Info: <input type="text" name="air_date"></h4>
 
-  <input type="submit" value="Submit"
+  <input type="submit" value="Submit">
 
 </form>
