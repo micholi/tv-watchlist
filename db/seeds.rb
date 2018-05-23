@@ -1,6 +1,6 @@
 User.create(email: "mich@test.com", username: "micholi", password: "brooklyn")
 User.create(email: "timmycat@email.com", username: "Timmy", password: "catnip")
-User.create(email: "june@mail.com" username: "Offred", password: "praisebe")
+User.create(email: "june@mail.com", username: "Offred", password: "praisebe")
 Network.create(name: "HBO")
 Network.create(name: "NBC")
 Network.create(name: "Hulu")
