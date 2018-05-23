@@ -1,1 +1,22 @@
-<h1>New Placeholder</h1>
+<h1>Add a New TV Show</h1>
+
+<form action="/shows" method="POST">
+  <h4>Name: <input type="text" name="name"></h4>
+
+  <h4>Genre: <input type="text" name="genre"></h4>
+
+  <h4>Network (Select One):</h4>
+  <% Network.all.each do |network|%>
+    <input type="checkbox" name="network_name" value="<%=network.name%>" id="network_name"><%=network.name%></input><br>
+  <%end%>
+
+  <input type="checkbox">
+  <label>Add New Network: <input type="text" name="network"></label>
+
+  <h4>Description: <input type="text" name="air_date"></h4>
+
+  <h4>Air Date Info: <input type="text" name="air_date"></h4>
+
+  <input type="submit" value="Submit"
+
+</form>
