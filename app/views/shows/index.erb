@@ -1,7 +1,30 @@
 <h1>All TV Shows</h1>
 
+<table style="width: 50%">
+  <tr>
+    <th>Show</th>
+    <th>Genre</th>
+    <th>Network</th>
+
+    <tr>
+
+    <% @shows.each do |show| %>
+    <td><a href="/shows/<%= show.id %>"><%= show.name %></td>
+    <td><%= show.network.name %></td>
+    <td><%= show.genre %></td>
+
+  </tr>
+    <br></br>
+    <% end %>
+
+
+</table>
+
+<br></br>
+
 <% @shows.each do |show| %>
-<%= show.name %><br>
+<a href="/shows/<%= show.id %>"><%= show.name %></a><br>
+
 <%= show.network.name %><br>
 <%= show.genre %><br>
 <%= show.description %><br>
