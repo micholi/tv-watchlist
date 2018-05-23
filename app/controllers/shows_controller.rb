@@ -41,6 +41,7 @@ class ShowsController < ApplicationController
     @show = Show.find_by_id(params[:id])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
+    network = Network.find_or_create_by(name: params[:network_name])
     @show.network_id = network.id
     @show.save
   end
