@@ -24,7 +24,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-
+    if !params[:email].empty? && !params[:username].empty? && !params[:password].empty?
+      @user = User.create(email: params[:email], username: params[:username], password: params[:password])
+      session[:user_id] = @user.id
+      # flash message?
+      redirect '/shows'
+    else
+      redirect '/signup'
   end
 
   get '/logout' do
