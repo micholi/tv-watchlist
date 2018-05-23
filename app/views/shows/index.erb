@@ -1,1 +1,10 @@
-<h1>Index Placeholder</h1>
+<h1>All TV Shows</h1>
+
+<% @shows.each do |show| %>
+<%= show.name %><br>
+<%= show.network.name %><br>
+<%= show.genre %><br>
+<%= show.description %><br>
+<%= show.air_date %><br>
+<br></br>
+<% end %>

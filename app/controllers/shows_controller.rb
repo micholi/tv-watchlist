@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
-    # code here
+    @shows = Show.all
     erb :'/shows/index'
   end
 
