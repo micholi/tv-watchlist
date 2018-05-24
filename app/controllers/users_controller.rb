@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  get '/users/watchlist' do
+    if logged_in?
+      @shows = current_user.shows.all
+      erb :'/users/watchlist'
+    else
+      # correct redirect??
+      redirect '/shows'
+    end
+  end
+
   get '/login' do
     if logged_in?
       redirect '/shows'
