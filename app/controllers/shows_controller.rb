@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
-    binding.pry
+    #binding.pry
     set_user
     @shows = Show.all
     erb :'/shows/index'
@@ -16,7 +16,7 @@ class ShowsController < ApplicationController
     # validation here
     set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    @show.network = Network.find_or_create_by(name: params[:network])
+    @show.network = Network.find_or_create_by(name: params[:network_name])
     @show.owner = current_user
     @show.users << current_user
     # user code
