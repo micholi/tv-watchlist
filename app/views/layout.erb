@@ -8,6 +8,14 @@
   </head>
 
   <body>
+
+    <% if flash.has?(:message) %>
+      <div class="alert alert-danger">
+        <%= flash[:message] %>
+      </div>
+    <% end %>
     <%= yield %>
+  </div>
+  
   </body>
 </html>
