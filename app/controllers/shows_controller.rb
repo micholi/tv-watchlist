@@ -32,19 +32,19 @@ class ShowsController < ApplicationController
 
   get '/shows/:slug/edit' do
     # login check
-    @show = Show.find_by(params[:slug])
+    @show = Show.find_by_slug(params[:slug])
     erb :'/shows/edit'
-    # redirect here
   end
 
-  patch '/shows/:id' do
+  patch '/shows/:slug' do
     # login / user check
-    @show = Show.find_by_id(params[:id])
+    @show = Show.find_by_slug(params[:slug])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
     network = Network.find_or_create_by(name: params[:network_name])
     @show.network_id = network.id
     @show.save
+    redirect "/show/#{@show.slug}"
   end
 
   delete '/show/:id/delete' do
