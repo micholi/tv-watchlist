@@ -34,6 +34,18 @@ class ShowsController < ApplicationController
     # redirect here
   end
 
+  get '/shows/:slug/add' do
+    set_user
+    @show = Show.find_by_slug(params[:slug])
+    if !@user.shows.include?(@show)
+      @user.shows << @show
+      redirect '/shows/mywatchlist'
+    else
+      flash[:message] = "That show is already in your watchlist!"
+      redirect '/shows/mywatchlist'
+    end
+  end
+
   get '/shows/:slug/edit' do
     set_user
     @show = Show.find_by_slug(params[:slug])
