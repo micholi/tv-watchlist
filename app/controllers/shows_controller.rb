@@ -1,6 +1,7 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
+    binding.pry
     set_user
     @shows = Show.all
     erb :'/shows/index'
@@ -15,8 +16,7 @@ class ShowsController < ApplicationController
     # validation here
     set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    network = Network.find_or_create_by(name: params[:network_name])
-    @show.network = network
+    @show.network = Network.find_or_create_by(name: params[:network_name])
     @show.owner = current_user
     @show.users << current_user
     # user code
@@ -26,7 +26,7 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/:slug' do
-    #binding.pry
+  #  binding.pry
     set_user
     @show = Show.find_by_slug(params[:slug])
   #  @user = current_user
@@ -69,6 +69,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       @show.delete
     # else needed?
+    end
   end
 
 end
