@@ -1,17 +1,19 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
+    set_user
     @shows = Show.all
     erb :'/shows/index'
   end
 
   get '/shows/new' do
-    # code here
+    set_user
     erb :'/shows/new'
   end
 
   post '/shows' do
     # validation here
+    set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
     network = Network.find_or_create_by(name: params[:network_name])
     @show.network = network
@@ -25,21 +27,21 @@ class ShowsController < ApplicationController
 
   get '/shows/:slug' do
     #binding.pry
-    # login check
+    set_user
     @show = Show.find_by_slug(params[:slug])
-    @user = current_user
+  #  @user = current_user
     erb :'/shows/detail'
     # redirect here
   end
 
   get '/shows/:slug/edit' do
-    # login check
+    set_user
     @show = Show.find_by_slug(params[:slug])
     erb :'/shows/edit'
   end
 
   patch '/shows/:slug' do
-    # login / user check
+    set_user
     @show = Show.find_by_slug(params[:slug])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
@@ -50,10 +52,11 @@ class ShowsController < ApplicationController
   end
 
   delete '/show/:id/delete' do
-    # login / user check
+    #set_user
     @show = Show.find_by_id(params[:id])
-    @show.delete
-    # redirect here
+    if @show && @show.owner == current_user
+      @show.delete
+    # else needed?
   end
 
 end
