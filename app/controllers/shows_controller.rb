@@ -14,8 +14,9 @@ class ShowsController < ApplicationController
     # validation here
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
     network = Network.find_or_create_by(name: params[:network_name])
-    @show.network_id = network.id
-    @show.user_id = current_user.id
+    @show.network = network
+    @show.owner = current_user
+    @show.users << current_user
     # user code
     @show.save
     #redirect "/shows/#{@show.id}"
@@ -23,7 +24,7 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/:slug' do
-    binding.pry
+    #binding.pry
     # login check
     @show = Show.find_by_slug(params[:slug])
     @user = current_user
