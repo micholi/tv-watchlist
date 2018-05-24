@@ -7,7 +7,7 @@
 
   <h4>Network (Select One):</h4>
   <% Network.all.each do |network|%>
-    <input type="checkbox" name="network_name" value="<%=network.name%>" id="network_name"><%=network.name%></input><br>
+    <input type="checkbox" name="network" value="<%=network.name%>" id="network_name"><%=network.name%></input><br>
   <%end%>
 
   <label>Add New Network: <input type="text" name="network"></label>

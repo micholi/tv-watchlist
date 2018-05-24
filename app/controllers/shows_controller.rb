@@ -16,7 +16,7 @@ class ShowsController < ApplicationController
     # validation here
     set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    @show.network = Network.find_or_create_by(name: params[:network_name])
+    @show.network = Network.find_or_create_by(name: params[:network])
     @show.owner = current_user
     @show.users << current_user
     # user code
@@ -57,7 +57,7 @@ class ShowsController < ApplicationController
     @show = Show.find_by_slug(params[:slug])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    network = Network.find_or_create_by(name: params[:network_name])
+    network = Network.find_or_create_by(name: params[:network])
     @show.network_id = network.id
     @show.save
     redirect "/show/#{@show.slug}"
