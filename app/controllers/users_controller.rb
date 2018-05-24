@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  use Rack::Flash
-
   get '/login' do
     if logged_in?
       redirect '/shows'
@@ -16,9 +14,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/shows'
     else
-      flash[:message] = "Error!"
-      redirect to "/login"
-    #erb :'/users/login'
+      flash[:message] = "Invalid username or password! Please try again."
+      redirect '/login'
     end
   end
 
@@ -30,23 +27,18 @@ class UsersController < ApplicationController
   post '/signup' do
     if params[:email].empty? || params[:username].empty? || params[:password].empty?
       flash[:message] = "Please fill out all fields to continue."
-      redirect to '/signup'
-      #redirect '/signup', flash[:message] = "Please fill out all fields to continue."
-    elsif User.find_by(email: params[:email])
-      flash[:message] = "Sorry, that email address is already in use."
       redirect '/signup'
+    elsif User.find_by(email: params[:email])
+      flash[:message] = "Sorry, that email is already in use. Please try a different one."
+      redirect '/signup'
+    elsif User.find_by(username: params[:username])
+      flash[:message] = "Sorry, that username is already in use. Please try a different one."
     else
-
       @user = User.create(email: params[:email], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
-      # flash message?
       redirect '/shows'
-
     end
   end
-
-
-
 
   get '/logout' do
     if logged_in?
