@@ -34,7 +34,7 @@ class ShowsController < ApplicationController
     # redirect here
   end
 
-  get '/shows/:slug/add' do
+  post '/shows/:slug/add' do
     set_user
     @show = Show.find_by_slug(params[:slug])
     if !@user.shows.include?(@show)
@@ -63,9 +63,9 @@ class ShowsController < ApplicationController
     redirect "/show/#{@show.slug}"
   end
 
-  delete '/show/:id/delete' do
+  delete '/show/:slugh/delete' do
     #set_user
-    @show = Show.find_by_id(params[:id])
+    @show = Show.find_by_id(params[:slug])
     if @show && @show.owner == current_user
       @show.delete
     # else needed?
