@@ -25,5 +25,5 @@
 
 <% if !@user.shows.include?(@show) %>
   <p>This show is not currently in your watchlist. Would you like to add it?</p>
-  <a class="btn btn-primary" href="/shows/<%= show.slug %>/add" role="button">Add Show</a>
+  <a class="btn btn-primary" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
 <% end %>
