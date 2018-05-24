@@ -8,7 +8,7 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/new' do
-    set_user
+    @user = current_user
     erb :'/shows/new'
   end
 
@@ -16,8 +16,10 @@ class ShowsController < ApplicationController
     # validation here
     set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    @show.network = Network.find_or_create_by(name: params[:network_name])
-    @show.owner = current_user
+    network = Network.find_or_create_by(name: params[:network_name])
+    #@show.network = network
+    @show.network_id = network.id
+    @show.owner_id = current_user.id
     @show.users << current_user
     # user code
     @show.save
@@ -47,20 +49,20 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/:slug/edit' do
-    set_user
+    #set_user
     @show = Show.find_by_slug(params[:slug])
     erb :'/shows/edit'
   end
 
   patch '/shows/:slug' do
-    set_user
+    #set_user
     @show = Show.find_by_slug(params[:slug])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-    network = Network.find_or_create_by(name: params[:network])
+    network = Network.find_or_create_by(name: params[:network_name])
     @show.network_id = network.id
     @show.save
-    redirect "/show/#{@show.slug}"
+    redirect "/shows/#{@show.slug}"
   end
 
   delete '/show/:slugh/delete' do
