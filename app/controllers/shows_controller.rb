@@ -23,7 +23,7 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/:slug' do
-  #  binding.pry
+    binding.pry
     # login check
     @show = Show.find_by_slug(params[:slug])
     @user = current_user
