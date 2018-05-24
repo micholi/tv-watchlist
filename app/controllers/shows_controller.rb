@@ -18,20 +18,21 @@ class ShowsController < ApplicationController
     @show.user_id = current_user.id
     # user code
     @show.save
-    redirect "/shows/#{@show.id}"
+    #redirect "/shows/#{@show.id}"
+    redirect "/shows/#{@show.slug}"
   end
 
-  get '/shows/:id' do
+  get '/shows/:slug' do
     # login check
-    @show = Show.find_by_id(params[:id])
+    @show = Show.find_by_slug(params[:slug])
     @user = current_user
     erb :'/shows/detail'
     # redirect here
   end
 
-  get '/shows/:id/edit' do
+  get '/shows/:slug/edit' do
     # login check
-    @show = Show.find_by_id(params[:id])
+    @show = Show.find_by(params[:slug])
     erb :'/shows/edit'
     # redirect here
   end
