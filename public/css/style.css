@@ -10,11 +10,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-h3 {
+.start_pages h3 {
   text-align: center;
 }
 
-h4 a {
+.start_pages h4 a {
   display: block;
   text-align: center;
   margin: auto;
