@@ -9,6 +9,14 @@
 
   <body>
 
+    <div class="topnav">
+      <a href="#">My Watchlist</a>
+      <a href="#">All Shows</a>
+      <a href="#">Add New Show</a>
+      <a href="#">Log Out</a>
+    </div>
+
+
     <% if flash.has?(:message) %>
       <div class="alert alert-danger">
         <%= flash[:message] %>
