@@ -4,24 +4,21 @@
   <p>Genre: <%= @show.genre %></p>
   <p>Network: <%= @show.network.name %></p>
   <p>Air Date: <%= @show.air_date %></p>
+
+  <% if @show.owner == current_user %>
+    <a href="/shows/<%= @show.slug %>/edit">Edit Show</a>
+
+  <form action="/shows/<%= @show.slug %>/delete" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input class="btn btn-outline-secondary btn-sm" type="submit" id="submit" value="Delete Show">
+  </form>
+  <% end %>
 </div>
 
-
 <div class="links-buttons">
-<% if @show.owner == current_user %>
-  <a class="btn btn-outline-primary btn-am" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
-
-<form action="/shows/<%= @show.slug %>/delete" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input class="btn btn-outline-danger btn-sm" type="submit" id="submit" value="Delete Show">
-</form>
-<% end %>
-
-<% if !@user.shows.include?(@show) %>
-  <p>This show is not currently in your watchlist. Would you like to add it?</p>
-  <a class="btn btn-success" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
-<% end %>
-
-<a href="/users/watchlist">View My Watchlist</a>
-
+  <% if !@user.shows.include?(@show) %>
+    <p>This show isn't currently in your watchlist. Would you like to add it?</p>
+    <a class="btn btn-outline-info btn-sm" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
+  <% end %>
+  <a class="nav-link" href="/users/watchlist">View My Shows</a>
 </div>
