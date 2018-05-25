@@ -2,7 +2,6 @@ class ShowsController < ApplicationController
 
   get '/shows' do
     #binding.pry
-    #binding.pry
     #set_user
     @shows = Show.all
     erb :'/shows/index'
@@ -43,13 +42,13 @@ class ShowsController < ApplicationController
     # redirect here
   end
 
-  post '/shows/:slug/add' do
+  get '/shows/:slug/add' do
     #set_user
     @user = current_user
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
-    @show.users << current_user
-    redirect '/shows/mywatchlist'
+    #@show.users << current_user
+    redirect "/shows/#{@show.slug}"
   end
 
   get '/shows/:slug/edit' do
