@@ -6,8 +6,7 @@ class UsersController < ApplicationController
       @shows = @user.shows.all.order(:name)
       erb :'/users/watchlist'
 
-      # correct redirect??
-    #  redirect '/shows'
+        # move to shows directory?
 
   end
 
