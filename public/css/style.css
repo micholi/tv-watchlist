@@ -29,10 +29,11 @@ p.edit-page {
 }
 
 
-/* #279566 Add a black background color to the top navigation */
+/* Add a black background color to the top navigation */
 .topnav {
     background-color: #279566;
     overflow: hidden;
+    margin-bottom: 25px;
 }
 
 /* Style the links inside the navigation bar */
@@ -55,4 +56,16 @@ p.edit-page {
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+.main-content {
+  width: 75%;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  border: 1px solid #A5ACAF;
+}
+
+.links-buttons {
+  width: 75%;
+  margin: auto;
 }

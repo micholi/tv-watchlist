@@ -1,16 +1,12 @@
-<h3><%= @show.name %></h3>
+<div class="main-content">
+  <h3><%= @show.name %></h3>
+  <p>Description: <%= @show.description %></p>
+  <p>Genre: <%= @show.genre %></p>
+  <p>Network: <%= @show.network.name %></p>
+  <p>Air Date: <%= @show.air_date %></p>
+</div>
 
-<h5>Description:</h5>
-<p><%= @show.description %></p>
-
-<h5>Genre:</h5>
-<p><%= @show.genre %></p>
-
-<h5>Network:</h5>
-<p><%= @show.network.name %></p>
-
-<h5>Air Date:</h5>
-<p><%= @show.air_date %></p>
+<div class="links-buttons">
 
 <% if @show.owner == current_user %>
   <a class="btn btn-outline-primary" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
@@ -29,3 +25,5 @@
 <% end %>
 
 <a href="/users/watchlist">View My Watchlist</a>
+
+</div>

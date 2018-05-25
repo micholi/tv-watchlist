@@ -1,10 +1,12 @@
+<div class="main-content">
+
 <h3>All TV Shows</h3>
 
 <% @shows.each do |show| %>
   <a href="/shows/<%= show.slug %>"><%= show.name %> - <%= show.genre %> - <%= show.network.name %></a><br>
 <% end %>
 
-<br></br>
+</div>
 
 <a class="btn btn-outline-primary" href="/users/watchlist" role="button">View My Watchlist</a>
 <a class="btn btn-outline-info" href="/shows/new" role="button">Add New Show</a>
