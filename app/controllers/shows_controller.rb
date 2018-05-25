@@ -43,11 +43,12 @@ class ShowsController < ApplicationController
     # redirect here
   end
 
-  get '/shows/:slug/add' do
+  post '/shows/:slug/add' do
     #set_user
     @user = current_user
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
+    @show.users << current_user
     redirect '/shows/mywatchlist'
   end
 
