@@ -1,0 +1,5 @@
+<h3><%= @network.name %> Shows</h3>
+
+<% @network.shows.each do |show| %>
+  <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
+<% end %>

@@ -1,27 +1,13 @@
-class NetworksController
+class NetworksController < ApplicationController
 
   get '/networks' do
+    @networks = Network.all.order(:name)
     erb :'/networks/index'
   end
 
-  get '/networks/new' do
-    erb :'/networks/new'
-  end
-
-  post '/networks' do
-
-  end
-
   get '/networks/:slug' do
-
+    @network = Network.find_by_slug(params[:slug])
+    erb :'/networks/info'
   end
 
-  get '/networks/:slug/edit' do
-
-  end
-
-  patch '/networks/:slug' do
-
-  end
-
-  end
+end

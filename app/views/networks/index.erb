@@ -1,0 +1,5 @@
+<h3>All TV Networks</h3>
+
+<% @networks.each do |network| %>
+  <a href="/networks/<%= network.slug %>"><%= network.name %></a><br>
+<% end %>
