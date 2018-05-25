@@ -1,0 +1,12 @@
+<h4>See What Other Users Are Watching</h4>
+
+<% @users.each do |user| %>
+
+  <% if user != current_user %>
+    <h5><%= user.username %></h5>
+    <% user.shows.each do |show| %>
+
+      <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
+    <% end %>
+  <% end %>
+<% end %>

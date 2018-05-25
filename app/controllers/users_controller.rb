@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   end
 
+  get '/users' do
+    @users = User.all
+    erb :'/users/users'
+  end
+
   get '/login' do
     if logged_in?
       redirect '/shows'
