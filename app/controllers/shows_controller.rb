@@ -2,6 +2,7 @@ class ShowsController < ApplicationController
 
   get '/shows' do
     #binding.pry
+    #binding.pry
     #set_user
     @shows = Show.all
     erb :'/shows/index'
@@ -13,7 +14,7 @@ class ShowsController < ApplicationController
   end
 
   post '/shows' do
-    binding.pry
+    #binding.pry
     # validation here
     #set_user
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])

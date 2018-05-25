@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
   get '/users/watchlist' do
-    set_user
+    #set_user
       @shows = current_user.shows.all
       erb :'/users/watchlist'
 
       # correct redirect??
-      redirect '/shows'
-  
+    #  redirect '/shows'
+
   end
 
   get '/login' do
