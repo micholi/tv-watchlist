@@ -3,19 +3,27 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.start_pages {
+.start-pages {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.start_pages h3 {
+.start-pages h3 {
   text-align: center;
 }
 
-.start_pages h4 a {
+.start-pages h4 a {
   display: block;
   text-align: center;
   margin: auto;
+}
+
+input[type="radio"] {
+  margin: 0 8px 0 8px;
+}
+
+p.edit-page {
+  color: #808080;
 }

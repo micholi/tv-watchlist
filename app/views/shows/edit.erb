@@ -1,33 +1,26 @@
-<h1>Edit <%= @show.name %> Page</h1>
+<h3>Edit <%= @show.name %> Page</h3>
 
 <form action="/shows/<%= @show.slug %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
 
-  <h3>Name:</h3>
-  <p><%= @show.name %></p>
-  <h4>New Name: <input type="text" name="name"></h4>
+  <p class="edit-page">Name: <%= @show.name %></p>
+  <p>New Name: <input type="text" name="name"></p>
 
-  <h3>Genre:</h3>
-  <p><%= @show.genre %></p>
-  <h4>New Genre: <input type="text" name="genre"></h4>
+  <p class="edit-page">Genre: <%= @show.genre %></p>
+  <p>New Genre: <input type="text" name="genre"></p>
 
-  <h3>Network:</h3>
-  <p><%= @show.network.name %>
-
-  <h4>New Network (Select One):</h4>
+  <p>Network (Select One):</p>
   <% Network.all.each do |network|%>
-    <input type="radio" name="network_name" value="<%=network.name%>" <%= 'checked' if network.id == @show.network_id %>><%=network.name%></input><br>
+    <label <%=network.name%>><input type="radio" name="network_name" value="<%=network.name%>" id="network_name"<%= 'checked' if network.id == @show.network_id%>><%=network.name%></input></label><br>
   <%end%>
-    <input type="radio" name="network_name" value="">New Network: <input type="text" name="other_network" />
+  <label for="new_network"><input type="radio" name="network_name" value="" id="new_network">New Network: <input type="text" name="other_network" /></label>
 
-  <h3>Description:</h3>
-  <p><%= @show.description %></p>
-  <h4>New Description: <input type="text" name="description"></h4>
+  <p class="edit-page">Description: <%= @show.description %></p>
+  <p>New Description<input type="text" name="description"></p>
 
-  <h3>Air Date Info:</h3>
-  <p><%= @show.air_date %></p>
-  <h4>New Air Date Info: <input type="text" name="air_date"></h4>
+  <p class="edit-page">Air Date Info: <%= @show.air_date %></p>
+  <p>New Air Date Info: <input type="text" name="air_date"></p>
 
-  <input type="submit" value="Update Show">
+  <input class="btn btn-outline-primary" type="submit" value="Update Show">
 
 </form>
