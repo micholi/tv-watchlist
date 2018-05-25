@@ -1,7 +1,7 @@
 <h1>Edit <%= @show.name %> Page</h1>
 
 <form action="/shows/<%= @show.slug %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="_method" value="PATCH">
 
   <h3>Name:</h3>
   <p><%= @show.name %></p>
@@ -16,9 +16,9 @@
 
   <h4>New Network (Select One):</h4>
   <% Network.all.each do |network|%>
-    <input type="checkbox" name="network_name" value="<%=network.name%>"><%=network.name%></input><br>
+    <input type="radio" name="network_name" value="<%=network.name%>" <%= 'checked' if network.id == @show.network_id %>><%=network.name%></input><br>
   <%end%>
-  <label>Add New Network: <input type="text" name="network_name"></label>
+    <input type="radio" name="network_name" value="">New Network: <input type="text" name="other_network" />
 
   <h3>Description:</h3>
   <p><%= @show.description %></p>
@@ -28,6 +28,6 @@
   <p><%= @show.air_date %></p>
   <h4>New Air Date Info: <input type="text" name="air_date"></h4>
 
-</form>
+  <input type="submit" value="Update Show">
 
-<input type="submit" value="Update Show">
+</form>
