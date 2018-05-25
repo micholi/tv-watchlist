@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   get '/users/watchlist' do
     #set_user
       @user = current_user
-      @shows = @user.shows.all
+      @shows = @user.shows.all.order(:name)
       erb :'/users/watchlist'
 
       # correct redirect??
