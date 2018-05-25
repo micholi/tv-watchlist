@@ -6,16 +6,14 @@
   <p>Air Date: <%= @show.air_date %></p>
 </div>
 
+
 <div class="links-buttons">
-
 <% if @show.owner == current_user %>
-  <a class="btn btn-outline-primary" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
-
-<br></br>
+  <a class="btn btn-outline-primary btn-am" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
 
 <form action="/shows/<%= @show.slug %>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input class="btn btn-outline-danger" type="submit" id="submit" value="Delete Show">
+  <input class="btn btn-outline-danger btn-sm" type="submit" id="submit" value="Delete Show">
 </form>
 <% end %>
 

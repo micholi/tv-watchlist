@@ -69,3 +69,24 @@ p.edit-page {
   width: 75%;
   margin: auto;
 }
+
+.btn-sm {
+  margin: 0 auto;
+  display: block;
+}
+
+table {
+  width: 65%;
+  border: 1px solid black;
+  margin: auto auto 30px;
+}
+
+th {
+  background-color: #476FBF;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 5px 10px;
+}
