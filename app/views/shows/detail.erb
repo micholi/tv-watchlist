@@ -1,29 +1,29 @@
-<h1><%= @show.name %></h1>
+<h3><%= @show.name %></h3>
 
-<h3>Description:</h3>
+<p>Description:</p>
 <p><%= @show.description %></p>
 
-<h3>Genre:</h3>
+<p>Genre:</p>
 <p><%= @show.genre %></p>
 
-<h3>Network:</h3>
+<p>Network:</p>
 <p><%= @show.network.name %></p>
 
-<h3>Air Date:</h3>
+<p>Air Date:</p>
 <p><%= @show.air_date %></p><br>
 
 <% if @show.owner == current_user %>
-<a href="/shows/<%= @show.slug %>/edit">Edit <%= @show.name %> Page</a>
+<a class="btn btn-outline-primary" href="/shows/<%= @show.slug %>/edit" role="button">Edit <%= @show.name %> Page</a>
 
 <br></br>
 
 <form action="/shows/<%= @show.slug %>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" id="submit" value="Delete Show">
+  <input class="btn btn-danger" type="submit" id="submit" value="Delete Show">
 </form>
 <% end %>
 
 <% if !@user.shows.include?(@show) %>
   <p>This show is not currently in your watchlist. Would you like to add it?</p>
-  <a class="btn btn-primary" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
+  <a class="btn btn-success" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
 <% end %>
