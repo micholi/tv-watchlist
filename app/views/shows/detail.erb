@@ -1,25 +1,25 @@
 <h3><%= @show.name %></h3>
 
-<p>Description:</p>
+<h5>Description:</h5>
 <p><%= @show.description %></p>
 
-<p>Genre:</p>
+<h5>Genre:</h5>
 <p><%= @show.genre %></p>
 
-<p>Network:</p>
+<h5>Network:</h5>
 <p><%= @show.network.name %></p>
 
-<p>Air Date:</p>
-<p><%= @show.air_date %></p><br>
+<h5>Air Date:</h5>
+<p><%= @show.air_date %></p>
 
 <% if @show.owner == current_user %>
-<a class="btn btn-outline-primary" href="/shows/<%= @show.slug %>/edit" role="button">Edit <%= @show.name %> Page</a>
+<a class="btn btn-outline-primary" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
 
 <br></br>
 
 <form action="/shows/<%= @show.slug %>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input class="btn btn-danger" type="submit" id="submit" value="Delete Show">
+  <input class="btn btn-outline-danger" type="submit" id="submit" value="Delete Show">
 </form>
 <% end %>
 
