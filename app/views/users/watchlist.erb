@@ -1,23 +1,21 @@
 <h3>My Watchlist</h3>
-<% @shows.each do |show| %><br>
-<%= show.name %>
-<% end %>
 
 <table style="width: 50%">
-  <tr>
-    <th>Show</th>
-    <th>Genre</th>
-    <th>Network</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Show</th>
+      <th>Genre</th>
+      <th>Network</th>
+    </tr>
+  </thead>
 
+  <tbody>
     <% @shows.each do |show| %>
     <tr>
     <td><a href="/shows/<%= show.slug %>"><%= show.name %></td>
     <td><%= show.genre %></td>
     <td><%= show.network.name %></td>
-
     </tr>
-    <br></br>
     <% end %>
-
+  </tbody>
 </table>
