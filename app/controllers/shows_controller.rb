@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
   get '/shows' do
     #binding.pry
     #set_user
-    @shows = Show.all
+    @shows = Show.all.order(:name)
     erb :'/shows/index'
   end
 
