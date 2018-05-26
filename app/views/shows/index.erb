@@ -1,13 +1,10 @@
 <div class="list-view">
-
-<h3>All TV Shows</h3>
-
-<% @shows.each do |show| %>
-  <a href="/shows/<%= show.slug %>"><%= show.name %> - <%= show.genre %> - <%= show.network.name %></a><br>
-<% end %>
-
+  <h3>All TV Shows</h3>
+  <% @shows.each do |show| %>
+    <a href="/shows/<%= show.slug %>"><%= show.name %> - <%= show.genre %> - <%= show.network.name %></a><br>
+  <% end %>
 </div>
-  <div class="links-buttons">
+<div class="links-buttons">
   <a class="nav-link" href="/users/watchlist">View My Shows</a>
   <a class="nav-link" href="/shows/new">Add New Show</a>
 </div>

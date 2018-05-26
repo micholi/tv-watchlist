@@ -1,26 +1,28 @@
-<h3>Edit <%= @show.name %> Page</h3>
+<div class="main-content">
+  <h3>Edit Show</h3>
 
-<form action="/shows/<%= @show.slug %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+  <form action="/shows/<%= @show.slug %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
 
-  <p class="edit-page">Name: <%= @show.name %></p>
-  <p>New Name: <input type="text" name="name"></p>
+    <p class="edit-page">Name: <%= @show.name %></p>
+    <p>New Name: <input type="text" name="name"></p>
 
-  <p class="edit-page">Genre: <%= @show.genre %></p>
-  <p>New Genre: <input type="text" name="genre"></p>
+    <p class="edit-page">Genre: <%= @show.genre %></p>
+    <p>New Genre: <input type="text" name="genre"></p>
 
-  <p>Network (Select One):</p>
-  <% Network.all.each do |network|%>
-    <label <%=network.name%>><input type="radio" name="network_name" value="<%=network.name%>" id="network_name"<%= 'checked' if network.id == @show.network_id%>><%=network.name%></input></label><br>
-  <%end%>
-  <label for="new_network"><input type="radio" name="network_name" value="" id="new_network">New Network: <input type="text" name="other_network" /></label>
+    <p>Network (Select One):</p>
+    <% Network.all.each do |network|%>
+      <label <%=network.name%>><input type="radio" name="network_name" value="<%=network.name%>" id="network_name"<%= 'checked' if network.id == @show.network_id%>><%=network.name%></input></label><br>
+    <%end%>
+    <label for="new_network"><input type="radio" name="network_name" value="" id="new_network">New Network: <input type="text" name="other_network" /></label>
 
-  <p class="edit-page">Description: <%= @show.description %></p>
-  <p>New Description<input type="text" name="description"></p>
+    <p class="edit-page">Description: <%= @show.description %></p>
+    <p>New Description<input type="text" name="description"></p>
 
-  <p class="edit-page">Air Date Info: <%= @show.air_date %></p>
-  <p>New Air Date Info: <input type="text" name="air_date"></p>
+    <p class="edit-page">Air Date Info: <%= @show.air_date %></p>
+    <p>New Air Date Info: <input type="text" name="air_date"></p>
 
-  <input class="btn btn-outline-primary btn-sm" type="submit" value="Update Show">
+    <input class="btn btn-outline-primary btn-sm" type="submit" value="Update Show">
 
-</form>
+  </form>
+</div>

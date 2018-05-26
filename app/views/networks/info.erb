@@ -1,5 +1,12 @@
-<h3><%= @network.name %> Shows</h3>
+<div class="list-view">
+  <h3><%= @network.name %> Shows</h3>
 
-<% @network.shows.each do |show| %>
-  <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
-<% end %>
+  <% @network.shows.each do |show| %>
+    <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
+  <% end %>
+</div>
+
+<div class="links-buttons">
+  <a class="nav-link" href="/networks">Return to Networks</a>
+  <a class="nav-link" href="/users/watchlist">View My Shows</a>
+</div>

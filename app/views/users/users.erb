@@ -1,12 +1,16 @@
-<h4>See What Other Users Are Watching</h4>
+<div class="list-view">
+  <h4>See What Other Users Are Watching</h4><br>
+    <% @users.each do |user| %>
 
-<% @users.each do |user| %>
-
-  <% if user != current_user %>
-    <h5><%= user.username %></h5>
-    <% user.shows.each do |show| %>
-
-      <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
+      <% if user != current_user %>
+        <h5><%= user.username %></h5>
+        <% user.shows.each do |show| %>
+          <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
+        <% end %><br>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+</div>
+
+<div class="links-buttons">
+  <a class="nav-link" href="/users/watchlist">View My Shows</a>
+</div>
