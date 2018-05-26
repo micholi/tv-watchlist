@@ -2,20 +2,29 @@ class ShowsController < ApplicationController
 
   get '/shows' do
     #binding.pry
-    #set_user
+
     @shows = Show.all.order(:name)
     erb :'/shows/index'
   end
 
   get '/shows/new' do
-    @user = current_user
-    erb :'/shows/new'
+    if logged_in?
+      @user = current_user
+      erb :'/shows/new'
+    else
+      flash[:message] = "You must log in to perform this action!"
+      redirect '/login'
+  end
   end
 
   post '/shows' do
-    #binding.pry
-    # validation here
-    #set_user
+
+    if !Network.find_by(name: params[:network_name]) && params[:other_network].empty?
+      flash[:message] = "Please fill out all required fields!"
+    elsif params[:name].empty? || params[:genre].empty? || params[:network_name].empty? || params[:description].empty? || params[:air_date].empty?
+      flash[:message] = "Please fill out all required fields!"
+    else
+
     @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
 
     if params[:other_network].empty?
@@ -32,10 +41,10 @@ class ShowsController < ApplicationController
     @show.save
     redirect "/shows/#{@show.slug}"
   end
+  end
 
   get '/shows/:slug' do
-  #  binding.pry
-  #  set_user
+
     @show = Show.find_by_slug(params[:slug])
     @user = current_user
     erb :'/shows/detail'
@@ -43,22 +52,26 @@ class ShowsController < ApplicationController
   end
 
   get '/shows/:slug/add' do
-    #set_user
+
     @user = current_user
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
-    #@show.users << current_user
+
     redirect "/shows/#{@show.slug}"
   end
 
   get '/shows/:slug/edit' do
-    #set_user
+
     @show = Show.find_by_slug(params[:slug])
     erb :'/shows/edit'
   end
 
   patch '/shows/:slug' do
-    #set_user
+    if !Network.find_by(name: params[:network_name]) && params[:other_network].empty?
+      flash[:message] = "Please fill out all required fields!"
+    elsif params[:name].empty? || params[:genre].empty? || params[:network_name].empty? || params[:description].empty? || params[:air_date].empty?
+      flash[:message] = "Please fill out all required fields!"
+
     @show = Show.find_by_slug(params[:slug])
     # validity check
     @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
@@ -69,6 +82,7 @@ class ShowsController < ApplicationController
       network = Network.create(name: params[:other_network])
       # test this and add flash message?
     end
+  end
 
     @show.network_id = network.id
     @show.save
