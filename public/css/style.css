@@ -111,3 +111,11 @@ th {
 td {
   padding: 5px 10px;
 }
+
+.flash-error {
+  position: absolute;
+  top: 50px;
+  left: auto;
+  text-align: center;
+  width: 100%;
+}

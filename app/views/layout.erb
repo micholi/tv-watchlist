@@ -20,11 +20,13 @@
       </div>
     <% end %>
 
+    <div class="flash-error">
     <% if flash.has?(:message) %>
       <div class="alert alert-danger">
         <%= flash[:message] %>
       </div>
     <% end %>
+    </div>
     <%= yield %>
   </div>
 
