@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def set_user
+    def user_check
       if logged_in?
         @user = current_user
       else

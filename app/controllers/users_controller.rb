@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   get '/users/watchlist' do
-
-      @user = current_user
+    user_check
+      #@user = current_user
       @shows = @user.shows.all.order(:name)
       erb :'/users/watchlist'
 
