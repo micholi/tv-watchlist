@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   get '/users' do
+    user_check
     @users = User.all
     erb :'/users/users'
   end
