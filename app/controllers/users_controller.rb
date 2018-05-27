@@ -1,15 +1,5 @@
 class UsersController < ApplicationController
 
-  get '/users/watchlist' do
-    user_check
-      #@user = current_user
-      @shows = @user.shows.all.order(:name)
-      erb :'/users/watchlist'
-
-        # move to shows directory?
-
-  end
-
   get '/users' do
     user_check
     @users = User.all
