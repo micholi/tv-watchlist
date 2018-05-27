@@ -2,6 +2,7 @@ class ShowsController < ApplicationController
 
   get '/shows' do
   #  binding.pry
+  # HOW TO CLEAR FLASH MESSAGES??
     user_check
     @shows = Show.all.order(:name)
     erb :'/shows/index'
@@ -81,6 +82,10 @@ class ShowsController < ApplicationController
     @user.shows << @show
     redirect "/shows/#{@show.slug}"
   end
+
+  get 'shows/:slug/remove' do
+  # REMOVE ASSOCIATION FOR NON-OWNED SHOW
+end
 
   delete '/shows/:slug' do
     user_check
