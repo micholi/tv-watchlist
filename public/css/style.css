@@ -72,6 +72,12 @@ p.edit-page {
   border-bottom: 1px solid #A5ACAF;
 }
 
+.error-page {
+  width: 90%;
+  margin: 75px auto 20px auto;
+  color: blue;
+}
+
 .links-buttons {
   width: 75%;
   margin: 0 auto;
