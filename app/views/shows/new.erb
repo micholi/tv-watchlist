@@ -10,7 +10,7 @@
   <% Network.all.each do |network|%>
     <label <%=network.name%>><input type="radio" name="network_name" value="<%=network.name%>" id="network_name"><%=network.name%></input></label><br>
   <%end%>
-  <label for="new_network"><input type="radio" name="network_name" value="" id="new_network">New Network: <input type="text" name="other_network" /></label>
+  <label for="new_network"><input type="radio" name="network_name" value="" id="new_network">New Network: <input type="text" name="new_network" /></label>
 
 
   <p>Description: <input type="text" name="description"></p>

@@ -19,16 +19,24 @@ class ShowsController < ApplicationController
 
   post '/shows' do
     user_check
-    if !Network.find_by(name: params[:network_name]) && params[:other_network].empty?
+    if Show.find_by(name: params[:name])
+      flash[:message] = "You may not add a show that already exists!"
+      redirect '/shows'
+  #  if !Network.find_by(name: params[:network_name]) && params[:new_network].empty?
+  #    flash[:message] = "Please fill out all required fields!"
+    elsif params[:name].empty? || params[:genre].empty? || (!Network.find_by(name: params[:network_name]) && params[:new_network].empty?) || params[:description].empty? || params[:air_date].empty?
       flash[:message] = "Please fill out all required fields!"
-    elsif params[:name].empty? || params[:genre].empty? || params[:network_name].empty? || params[:description].empty? || params[:air_date].empty?
-      flash[:message] = "Please fill out all required fields!"
+      # correct redirect?
+      redirect '/shows/new'
     else
       @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-      if params[:other_network].empty?
-        network = Network.find_by(name: params[:network_name])
-      elsif !params[:other_network].empty? && !Network.find_by(name: params[:other_network])
-        network = Network.create(name: params[:other_network])
+    #  if Network.find_by(name: params[:network_name])
+    #    network = Network.find_by(name: params[:network_name])
+    #  elsif !params[:new_network].empty? && !Network.find_by(name: params[:new_network])
+    #    network = Network.create(name: params[:new_network])
+    network = Network.find_by(name: params[:network_name])
+    if !@network && !params[:new_network].empty?
+      network = Network.create(name: params[:new_network])
       end
       @show.network_id = network.id
       @show.owner_id = current_user.id
@@ -95,13 +103,14 @@ class ShowsController < ApplicationController
     redirect "/shows/#{@show.slug}"
   end
 
-  delete '/show/:slug/delete' do
-    #set_user
-    @show = Show.find_by_id(params[:slug])
+  delete '/shows/:slug' do
+    user_check
+    @show = Show.find_by_slug(params[:slug])
     if @show && @show.owner == current_user
       @show.delete
     # else needed?
     end
+redirect '/shows'
   end
 
   #private methods?
