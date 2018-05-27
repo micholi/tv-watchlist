@@ -40,13 +40,6 @@ class ShowsController < ApplicationController
     erb :'/shows/detail'
   end
 
-  get '/shows/:slug/add' do
-    user_check
-    @show = Show.find_by_slug(params[:slug])
-    @user.shows << @show
-    redirect "/shows/#{@show.slug}"
-  end
-
   get '/shows/:slug/edit' do
     user_check
     @show = Show.find_by_slug(params[:slug])
@@ -74,6 +67,19 @@ class ShowsController < ApplicationController
       @show.save
       redirect "/shows/#{@show.slug}"
     end
+  end
+
+  get '/shows/watchlist' do
+    user_check
+    @shows = @user.shows.all.order(:name)
+    erb :'/shows/watchlist'
+  end
+
+  get '/shows/:slug/add' do
+    user_check
+    @show = Show.find_by_slug(params[:slug])
+    @user.shows << @show
+    redirect "/shows/#{@show.slug}"
   end
 
   delete '/shows/:slug' do
