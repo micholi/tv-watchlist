@@ -11,12 +11,13 @@
 
     <% if logged_in? %>
       <div class="topnav">
-        <a href="#">My Shows</a>
-        <a href="#">Browse All Shows</a>
-        <a href="#">Networks</a>
-        <a href="#">Users</a>
-        <a href="#">Add New Show</a>
-        <a href="/logout">Log Out</a>
+        <a class="logo" href="/shows">TW</a>
+        <a href="/shows/watchlist">My Watchlist</a>
+        <a href="/shows">Shows</a>
+        <a href="/networks">Networks</a>
+        <a href="/users">Users</a>
+        <a href="#">Add Show</a>
+        <a class="logout" href="/logout">Log Out</a>
       </div>
     <% end %>
 

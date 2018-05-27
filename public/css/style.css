@@ -125,3 +125,19 @@ td {
   text-align: center;
   width: 100%;
 }
+
+
+
+.topnav .logo {
+
+  font-size: 1.2em;
+  font-family: cursive;
+  padding-right: 25px;
+  padding-left: 35px;
+}
+
+.topnav .logout {
+  float: right;
+  padding-right: 35px;
+  font-size: .9em;
+}
