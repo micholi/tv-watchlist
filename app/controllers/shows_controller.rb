@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
-  #  binding.pry
+    binding.pry
   # HOW TO CLEAR FLASH MESSAGES??
     user_check
     @shows = Show.all.order(:name)
