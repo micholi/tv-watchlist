@@ -86,7 +86,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been permanently deleted."
-      redirect '/shows'
+      redirect '/watchlist'
     end
   end
 
