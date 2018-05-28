@@ -38,7 +38,9 @@ class ShowsController < ApplicationController
   get '/shows/:slug' do
     user_check
     @show = Show.find_by_slug(params[:slug])
+
     erb :'/shows/detail'
+
   end
 
   get '/shows/:slug/edit' do
@@ -70,7 +72,8 @@ class ShowsController < ApplicationController
     end
   end
 
-  get '/shows/watchlist' do
+  get '/mywatchlist' do
+    #binding.pry
     user_check
     @shows = @user.shows.all.order(:name)
     erb :'/shows/watchlist'

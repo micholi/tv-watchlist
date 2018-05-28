@@ -12,9 +12,9 @@
   <tbody>
     <% @shows.each do |show| %>
     <tr>
-    <td><a href="/shows/<%= show.slug %>"><%= show.name %></td>
-    <td><%= show.genre %></td>
-    <td><%= show.network.name %></td>
+      <td><a href="/shows/<%= show.slug %>"><%= show.name %></td>
+      <td><%= show.genre %></td>
+      <td><%= show.network.name %></td>
     </tr>
     <% end %>
   </tbody>
