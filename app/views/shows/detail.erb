@@ -11,10 +11,10 @@
   <p><span class="bold">Air Date: </span><%= @show.air_date %></p>
 
   <% if @show.owner == current_user %>
-    <a class="btn btn-outline-secondary btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
+    <a class="btn btn-outline-info btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
     <form action="/shows/<%= @show.slug %>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input class="btn btn-dark btn-sm" type="submit" id="submit" value="Delete Show">
+      <input class="btn btn-outline-dark btn-sm" type="submit" id="submit" value="Delete Show">
     </form>
   <% end %>
 
