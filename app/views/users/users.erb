@@ -1,7 +1,6 @@
 <div class="other-pages">
   <h3>What's Everyone Else Watching?</h3>
     <% @users.each do |user| %>
-
       <% if user != current_user %>
         <h5><%= user.username %></h5>
         <% user.shows.each do |show| %>
@@ -10,7 +9,6 @@
       <% end %>
     <% end %>
 </div>
-
 <div class="links-buttons">
   <a class="btn btn-outline-primary btn-sm" href="/watchlist" role="button">My Watchlist</a>
   <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
