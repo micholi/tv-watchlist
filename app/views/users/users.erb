@@ -3,7 +3,7 @@
     <% @users.each do |user| %>
       <% if user != current_user %>
         <h5><%= user.username %></h5>
-        <% user.shows.each do |show| %>
+        <% user.shows.all.order(:name).each do |show| %>
           <a href="/shows/<%= show.slug %>"><%= show.name %></a><br>
         <% end %><br>
       <% end %>
