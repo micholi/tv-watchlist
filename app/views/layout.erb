@@ -20,14 +20,7 @@
         <a class="logout" href="/logout">Log Out</a>
       </div>
     <% end %>
-
-    <div class="flash-error">
-    <% if flash.has?(:message) %>
-      <div class="alert alert-dark">
-        <%= flash[:message] %>
-      </div>
-    <% end %>
-    </div>
+    
     <%= yield %>
   </div>
 
