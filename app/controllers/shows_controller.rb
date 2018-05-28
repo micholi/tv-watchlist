@@ -49,7 +49,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       erb :'/shows/edit'
     else
-      flash[:message] = "You are not permitted to edit this entry."
+      flash[:message] = "You are not permitted to edit this show."
       erb :'/shows/permissions'
     end
   end
@@ -95,10 +95,10 @@ end
     @show = Show.find_by_slug(params[:slug])
     if @show && @show.owner == current_user
       @show.delete
-      flash[:message] = "This show has been deleted."
+      flash[:message] = "This show has been completely deleted from our site."
       erb :'/shows/permissions'
     else
-      flash[:message] = "You are not permitted to delete this entry."
+      flash[:message] = "You are not permitted to delete this show."
       redirect '/shows/permissions'
     end
   end
