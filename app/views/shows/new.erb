@@ -1,20 +1,16 @@
+<% if flash.has?(:message) %>
+  <div class="alert alert-danger">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 <div class="show-pages">
 <h3>Add a New TV Show</h3>
-
 <form action="/shows" method="POST">
   <p>Name: <input type="text" name="name"></p>
-
   <p>Genre: <input type="text" name="genre"></p>
-
   <p>Network: <input type="text" name="network"></p>
-
-
-
   <p>Description: <input type="text" name="description"></p>
-
   <p>Air Date Info: <input type="text" name="air_date"></p>
-
   <input class="btn btn-outline-primary btn-sm" type="submit" value="Submit">
-
 </form>
 </div>
