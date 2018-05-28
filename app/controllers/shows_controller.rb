@@ -17,10 +17,10 @@ class ShowsController < ApplicationController
     user_check
     if Show.find_by(name: params[:name])
       flash[:message] = "You may not add a show that already exists!"
-      erb :'/shows/error'
+      erb :'/shows/invalid'
     elsif params[:name].empty? || params[:genre].empty? || (!Network.find_by(name: params[:network_name]) && params[:new_network].empty?) || params[:description].empty? || params[:air_date].empty?
       flash[:message] = "Please fill out all fields to add a new show!"
-      erb :'/shows/error'
+      erb :'/shows/invalid'
     else
       @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
       network = Network.find_by(name: params[:network_name])
@@ -59,7 +59,7 @@ class ShowsController < ApplicationController
     @show = Show.find_by_slug(params[:slug])
     if params[:name].empty? || params[:genre].empty? || (!Network.find_by(name: params[:network_name]) && params[:new_network].empty?) || params[:description].empty? || params[:air_date].empty?
       flash[:message] = "Please fill out all fields to edit this show!"
-      erb :'/shows/error'
+      erb :'/shows/invalid'
     else
       @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
       network = Network.find_by(name: params[:network_name])
@@ -95,6 +95,10 @@ end
     @show = Show.find_by_slug(params[:slug])
     if @show && @show.owner == current_user
       @show.delete
+      flash[:message] = "This show has been deleted."
+      erb :'/shows/flash'
+    else
+      flash[:message] = "You are not permitted to edit this entry."
       redirect '/shows'
     end
   end
