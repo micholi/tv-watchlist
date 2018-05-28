@@ -1,3 +1,8 @@
+<% if flash.has?(:message) %>
+  <div class="alert alert-danger">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 <div class="start-pages">
   <h4>Log In to Your Account</h4><br>
   <form action="/login" method="POST">

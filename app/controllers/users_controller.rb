@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/watchlist'
     else
-      flash[:message] = "Invalid username or password! Please try again."
+      flash[:message] = "Invalid username or password. Please try again."
       redirect '/login'
     end
   end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:email].empty? || params[:username].empty? || params[:password].empty?
-      flash[:message] = "Please fill out all fields to continue."
+      flash[:message] = "Please fill out all fields to create an account."
       redirect '/signup'
     elsif User.find_by(email: params[:email])
       flash[:message] = "Sorry, that email is already in use. Please try a different one."
