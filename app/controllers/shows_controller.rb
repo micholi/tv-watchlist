@@ -50,7 +50,8 @@ elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_
       erb :'/shows/edit'
     else
       flash[:message] = "You are not permitted to edit this show."
-      erb :'/shows/permissions'
+      redirect :'/watchlist'
+      #erb :'/shows/permissions'
     end
   end
 
