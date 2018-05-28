@@ -1,8 +1,7 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
-  #  binding.pry
-  # HOW TO CLEAR FLASH MESSAGES??
+    #binding.pry
     user_check
     @shows = Show.all.order(:name)
     erb :'/shows/index'
@@ -17,17 +16,13 @@ class ShowsController < ApplicationController
     user_check
     if Show.find_by(name: params[:name])
       flash[:message] = "You may not add a show that already exists!"
-      erb :'/shows/invalid'
-  #  elsif params[:name].empty? || params[:genre].empty? || (!Network.find_by(name: params[:network_name]) && params[:new_network].empty?) || params[:description].empty? || params[:air_date].empty?
-elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_name]) || params[:new_network]) && params[:description] && params[:air_date]
+      redirect '/shows/new'
+    elsif params[:name] == ""|| params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
       flash[:message] = "Please fill out all fields to add a new show."
-      erb :'/shows/invalid'
+      redirect 'shows/new'
     else
       @show = Show.create(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-      network = Network.find_by(name: params[:network_name])
-      if !@network && !params[:new_network].empty?
-        network = Network.create(name: params[:new_network])
-      end
+      network = Network.find_or_create_by(name: params[:network])
       @show.network_id = network.id
       @show.owner = current_user
       @show.users << current_user
@@ -40,7 +35,6 @@ elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_
     user_check
     @show = Show.find_by_slug(params[:slug])
     erb :'/shows/detail'
-
   end
 
   get '/shows/:slug/edit' do
@@ -51,22 +45,18 @@ elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_
     else
       flash[:message] = "You are not permitted to edit this show."
       redirect :'/watchlist'
-      #erb :'/shows/permissions'
     end
   end
 
   patch '/shows/:slug' do
     user_check
     @show = Show.find_by_slug(params[:slug])
-    if params[:name].empty? || params[:genre].empty? || (!Network.find_by(name: params[:network_name]) && params[:new_network].empty?) || params[:description].empty? || params[:air_date].empty?
+    if params[:name] == ""|| params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
       flash[:message] = "Please fill out all fields to edit this show."
-      erb :'/shows/invalid'
+      redirect :'/shows/:slug/edit'
     else
       @show.update(name: params[:name], genre: params[:genre], description: params[:description], air_date: params[:air_date])
-      network = Network.find_by(name: params[:network_name])
-      if !@network && !params[:new_network].empty?
-        network = Network.create(name: params[:new_network])
-      end
+      network = Network.find_or_create_by(name: params[:network])
       @show.network_id = network.id
       @show.save
       redirect "/shows/#{@show.slug}"
