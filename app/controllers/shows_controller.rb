@@ -38,7 +38,6 @@ class ShowsController < ApplicationController
   get '/shows/:slug' do
     user_check
     @show = Show.find_by_slug(params[:slug])
-
     erb :'/shows/detail'
 
   end
@@ -81,9 +80,14 @@ class ShowsController < ApplicationController
     redirect "/watchlist"
   end
 
-  get 'shows/:slug/remove' do
-  # REMOVE ASSOCIATION FOR NON-OWNED SHOW
-end
+  get '/shows/:slug/remove' do
+  user_check
+  @show = Show.find_by_slug(params[:slug])
+  association = UserShow.find_by(user_id: @user.id, show_id: @show.id)
+  association.delete
+  flash[:message] = "This show has been removed from your watchlist."
+  redirect "/watchlist"
+  end
 
   delete '/shows/:slug' do
     user_check

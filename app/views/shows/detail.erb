@@ -13,12 +13,17 @@
       <input class="btn btn-secondary btn-sm" type="submit" id="submit" value="Delete Show">
     </form>
   <% end %>
+
+  <% if @user.shows.include?(@show) && @show.owner != current_user %>
+  <a class="btn btn-outline-secondary btn-sm" href="/shows/<%= @show.slug %>/remove" role="button">Remove from Watchlist</a>
+  <% end %>
 </div>
 
 <div class="links-buttons">
   <% if !@user.shows.include?(@show) %>
     <p>This show isn't currently in your watchlist. Would you like to add it? <a class="btn btn-info btn-sm" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a></p>
+  <% end %>
     <a class="btn btn-outline-primary btn-sm" href="/watchlist" role="button">My Watchlist</a>
     <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
-    <% end %>
+
 </div>
