@@ -3,14 +3,13 @@
     <%= flash[:message] %>
   </div>
 <% end %>
-
 <div class="show-pages">
   <h3><%= @show.name %></h3>
   <p><span class="bold">Description: </span><%= @show.description %></p>
   <p><span class="bold">Genre: </span><%= @show.genre %></p>
   <p><span class="bold">Network: </span><%= @show.network.name %></p>
   <p><span class="bold">Air Date: </span><%= @show.air_date %></p>
-
+  
   <% if @show.owner == current_user %>
     <a class="btn btn-outline-dark btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
 
