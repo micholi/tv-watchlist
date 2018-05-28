@@ -1,3 +1,9 @@
+<% if flash.has?(:message) %>
+  <div class="alert alert-success">
+    <%= flash[:message] %>
+  </div>
+<% end %>
+
 <div class="show-pages">
   <h3><%= @show.name %></h3>
   <p><span class="bold">Description: </span><%= @show.description %></p>

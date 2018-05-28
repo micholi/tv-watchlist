@@ -27,6 +27,7 @@ class ShowsController < ApplicationController
       @show.owner = current_user
       @show.users << current_user
       @show.save
+      flash[:message] = "Your new show has been added."
       redirect "/shows/#{@show.slug}"
     end
   end
@@ -59,6 +60,7 @@ class ShowsController < ApplicationController
       network = Network.find_or_create_by(name: params[:network])
       @show.network_id = network.id
       @show.save
+      flash[:message] = "Your show has been updated successfully."
       redirect "/shows/#{@show.slug}"
     end
   end
