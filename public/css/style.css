@@ -23,9 +23,10 @@ body {
 }
 
 /* ------------ NAV BAR ------------ */
-
+/* 279566 */
 .topnav {
-    background-color: #279566;
+    /* background-color: #2C755F; */
+    background-color: #2D6567;
     overflow: hidden;
     margin-bottom: 25px;
 
@@ -98,7 +99,8 @@ table {
 }
 
 th {
-  background-color: #476FBF;
+  /* background-color: #476FBF; */
+  background-color: #3156A1;
   color: white;
   padding: 10px;
 }
