@@ -1,7 +1,6 @@
 module Slugifiable
 
   def slug
-    #self.name.gsub(/\s/, "-").downcase
     self.name.downcase.gsub("'", "").gsub(" ", "-")
   end
 
