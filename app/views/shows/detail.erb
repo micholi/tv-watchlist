@@ -6,20 +6,19 @@
   <p>Air Date: <%= @show.air_date %></p>
 
   <% if @show.owner == current_user %>
-    <a class="btn btn-outline-info btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
+    <a class="btn btn-outline-dark btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
 
-  <form action="/shows/<%= @show.slug %>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input class="btn btn-outline-info btn-sm" type="submit" id="submit" value="Delete Show">
-  </form>
+    <form action="/shows/<%= @show.slug %>" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input class="btn btn-secondary btn-sm" type="submit" id="submit" value="Delete Show">
+    </form>
   <% end %>
 </div>
 
 <div class="links-buttons">
   <% if !@user.shows.include?(@show) %>
-    <p>This show isn't currently in your watchlist. Would you like to add it?</p>
-    <a class="btn btn-info btn-sm" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a>
+    <p>This show isn't currently in your watchlist. Would you like to add it? <a class="btn btn-info btn-sm" href="/shows/<%= @show.slug %>/add" role="button">Add Show</a></p>
   <% end %>
   <a class="btn btn-outline-primary btn-sm" href="/watchlist" role="button">My Watchlist</a>
-  <a class="btn btn-outline-secondary btn-sm" href="/shows">Browse Shows</a>
+  <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
 </div>
