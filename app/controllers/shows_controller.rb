@@ -76,17 +76,15 @@ class ShowsController < ApplicationController
     user_check
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
-    # TEST REDIRECT
     redirect "/watchlist"
   end
 
   get '/shows/:slug/remove' do
-  user_check
-  @show = Show.find_by_slug(params[:slug])
-  association = UserShow.find_by(user_id: @user.id, show_id: @show.id)
-  association.delete
-  flash[:message] = "This show has been removed from your watchlist."
-  redirect "/watchlist"
+    user_check
+    @show = Show.find_by_slug(params[:slug])
+    association = UserShow.find_by(user_id: @user.id, show_id: @show.id)
+    association.delete
+    redirect "/watchlist"
   end
 
   delete '/shows/:slug' do

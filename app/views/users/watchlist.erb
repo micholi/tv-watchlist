@@ -1,5 +1,5 @@
 <% if @user.shows.count >= 1 %>
-  <h3 class="table-heading">My Shows</h3>
+  <h3 class="table-heading">My Watchlist</h3>
 
   <table>
     <thead>
@@ -23,6 +23,7 @@
 
   <div class="links-buttons">
     <a class="btn btn-info btn-sm" href="/shows/new" role="button">Add New Show</a>
+    <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
   </div>
 <% end %>
 
