@@ -25,16 +25,16 @@
     </tbody>
   </table>
   <div class="links-buttons">
-    <a class="btn btn-info btn-sm" href="/shows/new" role="button">Add New Show</a>
-    <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
+    <a class="btn btn-outline-info btn-sm" href="/shows/new" role="button">Add New Show</a>
+    <a class="btn btn-outline-secondary btn-sm" href="/shows">Browse Shows</a>
   </div>
 <% end %>
 
 <% if @user.shows.count == 0 %>
   <div class="other-pages">
     <h5>You haven't added any shows yet! Where would you like to begin?</h5><br>
-    <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
+    <a class="btn btn-outline-secondary btn-sm" href="/shows">Browse Shows</a>
     <a class="btn btn-outline-secondary btn-sm" href="/networks">View Networks</a>
-    <a class="btn btn-outline-dark btn-sm" href="/users">See Other Users</a>
+    <a class="btn btn-outline-secondary btn-sm" href="/users">See Other Users</a>
   </div>
 <% end %>
