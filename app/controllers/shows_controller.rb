@@ -88,16 +88,23 @@ elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_
     redirect "/watchlist"
   end
 
-  delete '/shows/:slug' do
+  delete '/shows/:slug/delete' do
     user_check
     @show = Show.find_by_slug(params[:slug])
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been permanently deleted."
-      erb :'/shows/permissions'
-    else
+      redirect '/shows'
+    end
+  end
+
+  # prevent manual deletion of show by user without permissions
+  get '/shows/:slug/delete' do
+    user_check
+    @show = Show.find_by_slug(params[:slug])
+    if @show && @show.owner != current_user
       flash[:message] = "You are not permitted to delete this show."
-      erb :'/shows/permissions'
+      redirect '/shows'
     end
   end
 

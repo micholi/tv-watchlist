@@ -8,7 +8,7 @@
   <% if @show.owner == current_user %>
     <a class="btn btn-outline-dark btn-sm" href="/shows/<%= @show.slug %>/edit" role="button">Edit Show</a>
 
-    <form action="/shows/<%= @show.slug %>" method="POST">
+    <form action="/shows/<%= @show.slug %>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <input class="btn btn-secondary btn-sm" type="submit" id="submit" value="Delete Show">
     </form>
