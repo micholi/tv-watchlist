@@ -73,7 +73,6 @@ elsif params[:name] && params[:genre] && (Network.find_by(name: params[:network_
     end
   end
 
-
   get '/shows/:slug/add' do
     user_check
     @show = Show.find_by_slug(params[:slug])

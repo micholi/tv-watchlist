@@ -79,6 +79,10 @@ p.edit-page {
   color: #808080;
 }
 
+span.bold {
+  font-weight: bold;
+}
+
 .other-pages {
   width: 75%;
   margin: 0 auto 20px auto;
