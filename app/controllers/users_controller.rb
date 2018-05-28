@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect '/shows'
+      redirect '/watchlist'
     else
       erb :'/users/login'
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/shows'
+      redirect '/watchlist'
     else
       flash[:message] = "Invalid username or password! Please try again."
       redirect '/login'
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(email: params[:email], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
-      redirect '/shows'
+      redirect '/watchlist'
     end
   end
 
