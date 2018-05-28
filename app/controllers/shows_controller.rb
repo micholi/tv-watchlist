@@ -1,7 +1,6 @@
 class ShowsController < ApplicationController
 
   get '/shows' do
-    #binding.pry
     user_check
     @shows = Show.all.order(:name)
     erb :'/shows/index'
