@@ -3,9 +3,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-/* --------------------------------- */
 /* --- HOME, LOGIN, SIGNUP PAGES --- */
-/* --------------------------------- */
 
 .start-pages {
   position: absolute;
@@ -24,9 +22,7 @@ body {
   margin: auto;
 }
 
-/* --------------------------------- */
 /* ------------ NAV BAR ------------ */
-/* --------------------------------- */
 
 .topnav {
     background-color: #279566;
@@ -66,47 +62,30 @@ body {
   font-size: .9em;
 }
 
-.show-pages {
+/* ---------- PAGE LAYOUTS ---------- */
+
+.list-view {
+  width: 75%;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+}
+
+.forms {
   width: 75%;
   margin: 0 auto 30px auto;
   padding: 10px;
   border: 1px solid #A5ACAF;
 }
 
-.list-view {
-  width: 75%;
-  margin: 0 auto 20px auto;
-  padding: 10px;
-  border-bottom: 1px solid #A5ACAF;
+input[type="radio"] {
+  margin: 0 8px 0 8px;
 }
 
-
-
-h3.page-heading {
-  width: 75%;
-  margin: 0 auto 30px auto;
-  padding: 10px;
+p.edit-page {
+  color: #808080;
 }
 
-.links-buttons {
-  width: 75%;
-  margin: 0 auto;
-}
-
-.btn-sm {
-  margin: 10px 5px 10px 0;
-  padding: 0 auto;
-  display: inline;
-}
-
-.nav-link {
-  margin: 0 auto;
-  color: #279566;
-  display: inline;
-  padding: 0 5px;
-}
-
-
+/* --------- WATCHLIST PAGE --------- */
 
 table {
   width: 75%;
@@ -124,6 +103,14 @@ td {
   padding: 5px 10px;
 }
 
+h3.table-heading {
+  width: 75%;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+}
+
+/* ------------- ERRORS ------------- */
+
 .flash-error {
   position: absolute;
   top: 50px;
@@ -138,10 +125,22 @@ td {
   color: blue;
 }
 
-input[type="radio"] {
-  margin: 0 8px 0 8px;
+/* --------- BUTTONS AND LINKS --------- */
+
+.links-buttons {
+  width: 75%;
+  margin: 0 auto;
 }
 
-p.edit-page {
-  color: #808080;
+.btn-sm {
+  margin: 10px 5px 10px 0;
+  padding: 0 auto;
+  display: inline;
+}
+
+.nav-link {
+  margin: 0 auto;
+  color: #279566;
+  display: inline;
+  padding: 0 5px;
 }
