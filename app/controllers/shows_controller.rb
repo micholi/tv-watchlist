@@ -50,7 +50,7 @@ class ShowsController < ApplicationController
       erb :'/shows/edit'
     else
       flash[:message] = "You are not permitted to edit this entry."
-      redirect '/shows'
+      erb :'/shows/permissions'
     end
   end
 
@@ -96,10 +96,10 @@ end
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been deleted."
-      erb :'/shows/flash'
+      erb :'/shows/permissions'
     else
-      flash[:message] = "You are not permitted to edit this entry."
-      redirect '/shows'
+      flash[:message] = "You are not permitted to delete this entry."
+      redirect '/shows/permissions'
     end
   end
 
