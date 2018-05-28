@@ -64,12 +64,6 @@ body {
 
 /* ---------- PAGE LAYOUTS ---------- */
 
-.list-view {
-  width: 75%;
-  margin: 0 auto 20px auto;
-  padding: 10px;
-}
-
 .show-pages {
   width: 75%;
   margin: 0 auto 30px auto;
@@ -83,6 +77,12 @@ input[type="radio"] {
 
 p.edit-page {
   color: #808080;
+}
+
+.other-pages {
+  width: 75%;
+  margin: 0 auto 20px auto;
+  padding: 10px;
 }
 
 /* --------- WATCHLIST PAGE --------- */

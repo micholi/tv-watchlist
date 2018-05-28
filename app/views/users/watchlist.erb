@@ -1,25 +1,36 @@
-<h3 class="table-heading">My Shows</h3>
+<% if @user.shows.count >= 1 %>
+  <h3 class="table-heading">My Shows</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Show</th>
-      <th>Genre</th>
-      <th>Network</th>
-    </tr>
-  </thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Show</th>
+        <th>Genre</th>
+        <th>Network</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @shows.each do |show| %>
-    <tr>
-      <td><a href="/shows/<%= show.slug %>"><%= show.name %></td>
-      <td><%= show.genre %></td>
-      <td><%= show.network.name %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @shows.each do |show| %>
+      <tr>
+        <td><a href="/shows/<%= show.slug %>"><%= show.name %></td>
+        <td><%= show.genre %></td>
+        <td><%= show.network.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<div class="links-buttons">
-  <a class="btn btn-info btn-sm" href="/shows/new" role="button">Add New Show</a>
+  <div class="links-buttons">
+    <a class="btn btn-info btn-sm" href="/shows/new" role="button">Add New Show</a>
+  </div>
+<% end %>
+
+<div  class="other-pages">
+  <% if @user.shows.count == 0 %>
+    <h5>You haven't added any shows yet! Where would you like to begin?</h5><br>
+    <a class="btn btn-outline-info btn-sm" href="/shows">Browse Shows</a>
+    <a class="btn btn-outline-secondary btn-sm" href="/networks">View Networks</a>
+    <a class="btn btn-outline-dark btn-sm" href="/users">See Other Users</a>
+  <% end %>
 </div>
