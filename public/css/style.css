@@ -1,6 +1,7 @@
 body {
   background-color: #F1F1F2;
   font-family: 'Fira Sans', sans-serif;
+  font-size: 1.0em;
 }
 
 /* --- HOME, LOGIN, SIGNUP PAGES --- */
@@ -28,15 +29,16 @@ body {
     background-color: #279566;
     overflow: hidden;
     margin-bottom: 25px;
+
 }
 
 .topnav a {
     float: left;
+    padding: 14px 16px;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.05em;
 }
 
 .topnav a:hover {
@@ -113,14 +115,6 @@ h3.table-heading {
 }
 
 /* ------------- ERRORS ------------- */
-
-.flash-error {
-  position: absolute;
-  top: 50px;
-  left: auto;
-  text-align: center;
-  width: 100%;
-}
 
 .invalid {
   width: 95%;
