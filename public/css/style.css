@@ -1,7 +1,6 @@
 body {
   background-color: #F1F1F2;
   font-family: 'Fira Sans', sans-serif;
-  font-size: 1.0em;
 }
 
 /* --- HOME, LOGIN, SIGNUP PAGES --- */
@@ -38,7 +37,7 @@ body {
     color: #f2f2f2;
     text-align: center;
     text-decoration: none;
-    font-size: 1.05em;
+    font-size: .9em;
 }
 
 .topnav a:hover {
@@ -52,7 +51,7 @@ body {
 }
 
 .topnav .logo {
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-family: cursive;
   padding-right: 25px;
   padding-left: 35px;
@@ -61,7 +60,7 @@ body {
 .topnav .logout {
   float: right;
   padding-right: 35px;
-  font-size: .9em;
+  font-size: .8em;
 }
 
 /* ---------- PAGE LAYOUTS ---------- */
