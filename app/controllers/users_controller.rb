@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     erb :'/users/users'
   end
 
+  get '/watchlist' do
+    user_check
+    @shows = @user.shows.all.order(:name)
+    erb :'/users/watchlist'
+  end
+
   get '/login' do
     if logged_in?
       redirect '/shows'
