@@ -72,18 +72,13 @@ class ShowsController < ApplicationController
     end
   end
 
-  get '/mywatchlist' do
-    #binding.pry
-    user_check
-    @shows = @user.shows.all.order(:name)
-    erb :'/shows/watchlist'
-  end
 
   get '/shows/:slug/add' do
     user_check
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
-    redirect "/shows/#{@show.slug}"
+    # TEST REDIRECT
+    redirect "/watchlist"
   end
 
   get 'shows/:slug/remove' do
