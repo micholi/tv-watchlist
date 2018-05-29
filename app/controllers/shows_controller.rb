@@ -68,6 +68,7 @@ class ShowsController < ApplicationController
     user_check
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
+    flash[:message] = "This show has been added to your watchlist."
     redirect "/users/watchlist"
   end
 
@@ -86,7 +87,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been permanently deleted."
-      redirect '/shows'
+      redirect '/users/watchlist'
     end
   end
 
