@@ -16,7 +16,7 @@ class ShowsController < ApplicationController
     if Show.find_by(name: params[:name])
       flash[:message] = "You may not add a show that already exists!"
       redirect '/shows/new'
-    elsif params[:name] == ""|| params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
+    elsif params[:name] == "" || params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
       flash[:message] = "Please fill out all fields to add a new show."
       redirect 'shows/new'
     else
@@ -51,7 +51,7 @@ class ShowsController < ApplicationController
   patch '/shows/:slug' do
     user_check
     @show = Show.find_by_slug(params[:slug])
-    if params[:name] == ""|| params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
+    if params[:name] == "" || params[:genre] == "" || params[:network] == "" || params[:description] == "" || params[:air_date] == ""
       flash[:message] = "Please fill out all fields to edit this show."
       redirect :'/shows/:slug/edit'
     else
