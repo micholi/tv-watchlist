@@ -76,6 +76,7 @@ class ShowsController < ApplicationController
     @show = Show.find_by_slug(params[:slug])
     association = UserShow.find_by(user_id: @user.id, show_id: @show.id)
     association.delete
+    flash[:message] = "This show has been removed from your watchlist."
     redirect "/users/watchlist"
   end
 
@@ -85,7 +86,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been permanently deleted."
-      redirect '/users/watchlist'
+      redirect '/shows'
     end
   end
 
