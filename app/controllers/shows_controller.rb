@@ -44,7 +44,7 @@ class ShowsController < ApplicationController
       erb :'/shows/edit'
     else
       flash[:message] = "You are not permitted to edit this show."
-      redirect :'/users/watchlist'
+      redirect :'/shows'
     end
   end
 
