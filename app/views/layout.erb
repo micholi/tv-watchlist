@@ -12,7 +12,7 @@
     <% if logged_in? %>
       <div class="topnav">
         <a class="logo" href="/shows">TVW</a>
-        <a href="/watchlist">My Watchlist</a>
+        <a href="/users/watchlist">My Watchlist</a>
         <a href="/shows">Shows</a>
         <a href="/networks">Networks</a>
         <a href="/users">Users</a>
@@ -20,7 +20,7 @@
         <a class="logout" href="/logout">Log Out</a>
       </div>
     <% end %>
-    
+
     <%= yield %>
   </div>
 
