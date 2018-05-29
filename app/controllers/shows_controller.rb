@@ -44,7 +44,7 @@ class ShowsController < ApplicationController
       erb :'/shows/edit'
     else
       flash[:message] = "You are not permitted to edit this show."
-      redirect :'/watchlist'
+      redirect :'/users/watchlist'
     end
   end
 
@@ -68,7 +68,7 @@ class ShowsController < ApplicationController
     user_check
     @show = Show.find_by_slug(params[:slug])
     @user.shows << @show
-    redirect "/watchlist"
+    redirect "/users/watchlist"
   end
 
   get '/shows/:slug/remove' do
@@ -76,7 +76,7 @@ class ShowsController < ApplicationController
     @show = Show.find_by_slug(params[:slug])
     association = UserShow.find_by(user_id: @user.id, show_id: @show.id)
     association.delete
-    redirect "/watchlist"
+    redirect "/users/watchlist"
   end
 
   delete '/shows/:slug/delete' do
@@ -85,7 +85,7 @@ class ShowsController < ApplicationController
     if @show && @show.owner == current_user
       @show.delete
       flash[:message] = "This show has been permanently deleted."
-      redirect '/watchlist'
+      redirect '/users/watchlist'
     end
   end
 
