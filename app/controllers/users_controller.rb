@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   get '/users/watchlist' do
     user_check
-
     @shows = @user.shows.all.order(:name)
     erb :'/users/watchlist'
   end
