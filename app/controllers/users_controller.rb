@@ -25,6 +25,9 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect '/users/watchlist'
+    elsif params[:username] == "" || params[:password] == ""
+      flash[:message] = "Please fill out all fields to login."
+      redirect '/login'
     else
       flash[:message] = "Invalid username or password. Please try again."
       redirect '/login'
