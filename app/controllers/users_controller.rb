@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       redirect '/signup'
     elsif User.find_by(username: params[:username])
       flash[:message] = "Sorry, that username is already in use. Please try a different one."
+      redirect '/signup'
     else
       @user = User.create(email: params[:email], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
