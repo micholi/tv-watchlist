@@ -32,9 +32,10 @@
 
 <% if @user.shows.count == 0 %>
   <div class="other-pages">
-    <h5>You haven't added any shows yet! Where would you like to begin?</h5><br>
-    <a class="btn btn-outline-secondary btn-sm" href="/shows">Browse Shows</a>
-    <a class="btn btn-outline-secondary btn-sm" href="/networks">View Networks</a>
-    <a class="btn btn-outline-secondary btn-sm" href="/users">See Other Users</a>
+    <h5>Welcome to TV Watchlist, <%= @user.username %>!</h5>
+    <h5>You haven't added any shows yet. Where would you like to begin?</h5><br>
+    <a class="btn btn-outline-secondary btn-sm" href="/shows">Browse All Shows</a>
+    <a class="btn btn-outline-secondary btn-sm" href="/users">View User Watchlists</a>
+    <a class="btn btn-info btn-sm" href="/shows/new" role="button">Add New Show</a>
   </div>
 <% end %>
