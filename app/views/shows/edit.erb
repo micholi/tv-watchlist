@@ -8,15 +8,15 @@
   <form action="/shows/<%= @show.slug %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
       <p class="edit-page">Name: <%= @show.name %></p>
-      <p>New Name: <input type="text" name="name"></p>
+      <p>Edit Name: <input type="text" name="name"></p>
       <p class="edit-page">Genre: <%= @show.genre %></p>
-      <p>New Genre: <input type="text" name="genre"></p>
+      <p>Edit Genre: <input type="text" name="genre"></p>
       <p class="edit-page">Network: <%= @show.network.name %></p>
-      <p>New Network: <input type="text" name="network"></p>
+      <p>Edit Network: <input type="text" name="network"></p>
       <p class="edit-page">Description: <%= @show.description %></p>
-      <p>New Description<input type="text" name="description"></p>
-      <p class="edit-page">Air Date Info: <%= @show.air_date %></p>
-      <p>New Air Date: <input type="text" name="air_date"></p>
+      <p>Edit Description<input type="text" name="description"></p>
+      <p class="edit-page">Air Date: <%= @show.air_date %></p>
+      <p>Edit Air Date: <input type="text" name="air_date"></p>
     <input class="btn btn-primary btn-sm" type="submit" value="Update Show">
   </form>
 </div>
