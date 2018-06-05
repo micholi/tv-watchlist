@@ -4,19 +4,14 @@
   </div>
 <% end %>
 <div class="show-pages">
-  <h3>Edit Show</h3>
+  <h3>Edit <%= @show.name %></h3>
   <form action="/shows/<%= @show.slug %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
-      <p class="edit-page">Name: <%= @show.name %></p>
-      <p>Edit Name: <input type="text" name="name"></p>
-      <p class="edit-page">Genre: <%= @show.genre %></p>
-      <p>Edit Genre: <input type="text" name="genre"></p>
-      <p class="edit-page">Network: <%= @show.network.name %></p>
-      <p>Edit Network: <input type="text" name="network"></p>
-      <p class="edit-page">Description: <%= @show.description %></p>
-      <p>Edit Description<input type="text" name="description"></p>
-      <p class="edit-page">Air Date: <%= @show.air_date %></p>
-      <p>Edit Air Date: <input type="text" name="air_date"></p>
+      <p>Name: <input type="text" name="name" value="<%= @show.name %>"></p>
+      <p>Genre: <input type="text" name="genre" value="<%= @show.genre %>"></p>
+      <p>Network: <input type="text" name="network" value="<%= @show.network.name %>"></p>
+      <p>Description<input type="text" name="description" value="<%= @show.description %>"></p>
+      <p>Air Date: <input type="text" name="air_date" value="<%= @show.air_date %>"></p>
     <input class="btn btn-primary btn-sm" type="submit" value="Update Show">
   </form>
 </div>
